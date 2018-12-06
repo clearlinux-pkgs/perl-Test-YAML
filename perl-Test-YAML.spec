@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-YAML
 Version  : 1.07
-Release  : 4
+Release  : 5
 URL      : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Summary  : 'Testing Module for YAML Implementations'
