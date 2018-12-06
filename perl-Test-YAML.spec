@@ -88,8 +88,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1Test/YAML.pm
-/usr/lib/perl5/vendor_perl/5.28.1Test/YAML.pod
+/usr/lib/perl5/vendor_perl/5.28.1/Test/YAML.pm
+/usr/lib/perl5/vendor_perl/5.28.1/Test/YAML.pod
 
 %files bin
 %defattr(-,root,root,-)
