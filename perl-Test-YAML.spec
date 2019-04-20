@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-YAML
 Version  : 1.07
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
-Summary  : 'Testing Module for YAML Implementations'
+Summary  : Testing Module for YAML Implementations
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-YAML-bin = %{version}-%{release}
@@ -36,6 +36,7 @@ Summary: dev components for the perl-Test-YAML package.
 Group: Development
 Requires: perl-Test-YAML-bin = %{version}-%{release}
 Provides: perl-Test-YAML-devel = %{version}-%{release}
+Requires: perl-Test-YAML = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-YAML package.
