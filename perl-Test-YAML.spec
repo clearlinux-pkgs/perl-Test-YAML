@@ -4,14 +4,15 @@
 #
 Name     : perl-Test-YAML
 Version  : 1.07
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
-Summary  : Testing Module for YAML Implementations
+Summary  : 'Testing Module for YAML Implementations'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-YAML-bin = %{version}-%{release}
 Requires: perl-Test-YAML-license = %{version}-%{release}
+Requires: perl-Test-YAML-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Spiffy)
 BuildRequires : perl(Test::Base)
@@ -50,14 +51,24 @@ Group: Default
 license components for the perl-Test-YAML package.
 
 
+%package perl
+Summary: perl components for the perl-Test-YAML package.
+Group: Default
+Requires: perl-Test-YAML = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-YAML package.
+
+
 %prep
 %setup -q -n Test-YAML-1.07
+cd %{_builddir}/Test-YAML-1.07
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -67,7 +78,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -76,7 +87,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-YAML
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-YAML/LICENSE
+cp %{_builddir}/Test-YAML-1.07/LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-YAML/883758993cc9a404b18936c49f4c6f4db25e763a
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -89,8 +100,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/YAML.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Test/YAML.pod
 
 %files bin
 %defattr(-,root,root,-)
@@ -102,4 +111,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-YAML/LICENSE
+/usr/share/package-licenses/perl-Test-YAML/883758993cc9a404b18936c49f4c6f4db25e763a
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/YAML.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Test/YAML.pod
