@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-YAML
 Version  : 1.07
-Release  : 17
+Release  : 18
 URL      : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TI/TINITA/Test-YAML-1.07.tar.gz
 Summary  : 'Testing Module for YAML Implementations'
@@ -115,5 +115,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Test/YAML.pm
-/usr/lib/perl5/vendor_perl/5.30.2/Test/YAML.pod
+/usr/lib/perl5/vendor_perl/5.30.3/Test/YAML.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Test/YAML.pod
